@@ -355,8 +355,8 @@ esp_err_t es8388_set_voice_volume(int volume)
     volume /= 3;
     res = es_write_reg(ES8388_ADDR, ES8388_DACCONTROL24, volume);
     res |= es_write_reg(ES8388_ADDR, ES8388_DACCONTROL25, volume);
-    res |= es_write_reg(ES8388_ADDR, ES8388_DACCONTROL26, 0);
-    res |= es_write_reg(ES8388_ADDR, ES8388_DACCONTROL27, 0);
+    res |= es_write_reg(ES8388_ADDR, ES8388_DACCONTROL26, volume);
+    res |= es_write_reg(ES8388_ADDR, ES8388_DACCONTROL27, volume);
     return res;
 }
 
