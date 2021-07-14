@@ -34,7 +34,7 @@
 #include "es8388.h"
 #include "board.h"
 
-#ifdef CONFIG_ESP_LYRAT_V4_3_BOARD
+#if defined CONFIG_ESP_LYRAT_V4_3_BOARD || defined CONFIG_ESP_AI_THINKER_V2_2_2957_BOARD
 
 #define HP_DELAY_TIME_MS       1000
 
