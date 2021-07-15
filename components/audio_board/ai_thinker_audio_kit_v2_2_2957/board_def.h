@@ -45,7 +45,7 @@
 extern audio_hal_func_t AUDIO_CODEC_ES8388_DEFAULT_HANDLE;
 
 #define AUDIO_CODEC_DEFAULT_CONFIG(){                   \
-        .adc_input  = AUDIO_HAL_ADC_INPUT_LINE1,        \
+        .adc_input  = AUDIO_HAL_ADC_INPUT_LINE2,        \
         .dac_output = AUDIO_HAL_DAC_OUTPUT_ALL,         \
         .codec_mode = AUDIO_HAL_CODEC_MODE_BOTH,        \
         .i2s_iface = {                                  \
