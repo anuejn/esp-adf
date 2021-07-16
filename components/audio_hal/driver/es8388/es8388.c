@@ -289,7 +289,7 @@ esp_err_t es8388_init(audio_hal_codec_config_t *cfg)
     res |= es_write_reg(ES8388_ADDR, ES8388_DACPOWER, tmp);  //0x3c Enable DAC and Enable Lout/Rout/1/2
     /* adc */
     res |= es_write_reg(ES8388_ADDR, ES8388_ADCPOWER, 0xFF);
-    res |= es_write_reg(ES8388_ADDR, ES8388_ADCCONTROL1, 0xbb); // MIC Left and Right channel PGA gain
+    res |= es_write_reg(ES8388_ADDR, ES8388_ADCCONTROL1, 0x00); // MIC Left and Right channel PGA gain
     tmp = 0;
     if (AUDIO_HAL_ADC_INPUT_LINE1 == cfg->adc_input) {
         tmp = ADC_INPUT_LINPUT1_RINPUT1;
@@ -302,7 +302,8 @@ esp_err_t es8388_init(audio_hal_codec_config_t *cfg)
     res |= es_write_reg(ES8388_ADDR, ES8388_ADCCONTROL3, 0x02);
     res |= es_write_reg(ES8388_ADDR, ES8388_ADCCONTROL4, 0x0d); // Left/Right data, Left/Right justified mode, Bits length, I2S format
     res |= es_write_reg(ES8388_ADDR, ES8388_ADCCONTROL5, 0x02);  //ADCFsMode,singel SPEED,RATIO=256
-    //ALC for Microphone
+    res |= es_write_reg(ES8388_ADDR, ES8388_ADCCONTROL10, 0x00);  //Disable ALC
+
     res |= es8388_set_adc_dac_volume(ES_MODULE_ADC, 0, 0);      // 0db
     res |= es_write_reg(ES8388_ADDR, ES8388_ADCPOWER, 0x09); //Power on ADC, Enable LIN&RIN, Power off MICBIAS, set int1lp to low power mode
     /* enable es8388 PA */
